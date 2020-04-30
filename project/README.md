@@ -1,24 +1,17 @@
-# project
+## 在B站评论中获取了刘老师的数据接口
+### 这是一个移动端的vue电商购物项目
+#### 项目主要分为 四个部分 首页、会员、购物车、搜索
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 从项目中学到了什么？
+#### 1、熟悉一个项目开发的流程 
+#### 2、学会组件化、模块化的开发模式 
+#### 3、掌握使用vue-cli脚手架初始化vue.js项目 
+#### 4、学会ES6的开发方法
+#### 5、掌握一些项目的优化技巧
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 第三方插件或库
+#### 1、学会使用Mint-ui库 
+#### 2、学会使用mui库 
+#### 3、学会使用 axios 的封装和后端数据交互
+#### 4、学会使用 vuex 管理应用组件的状态
