@@ -2,7 +2,11 @@
 <div  class="app_container">
 
   <!-- 顶部区域 -->
-  <myheader fixed title="黑马小帅哥Vue项目"></myheader>
+  <myheader fixed title="移动端Vue项目" class="title"> 
+	    <span  slot="left" @click="goBack" v-show="flag">
+    <mybtn icon="back">返回</mybtn>
+  </span>
+  </myheader>
 
   <!-- 中间路由区域 -->
   <transition>
@@ -16,21 +20,21 @@
 				<span class="mui-icon mui-icon-home"></span>
 				<span class="mui-tab-label">首页</span>
 			</router-link>
+
 			<router-link class="mui-tab-item" to="/member">
-			
 				<span class="mui-icon mui-icon-contact"></span>
 				<span class="mui-tab-label">会员</span>
 			</router-link>
+
 			<router-link class="mui-tab-item" to="/shopcart">
-			
-				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">1</span></span>
+				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="badge">{{this.$store.getters.getAllCount}}</span></span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
+
+
 			<router-link class="mui-tab-item" to="/search">
-		
 				<span class="mui-icon mui-icon-search"></span>
 				<span class="mui-tab-label">搜索</span>
-			
 		</router-link>
 
 </nav>
@@ -41,19 +45,35 @@ export default {
 components: {},
 data() {
 return {
-
+   flag:false
 };
 },
 computed: {},
 //监控data中的数据变化
-watch: {},
+watch: {
+	'$route.path':function(newvalue){
+      if(newvalue ==='/home'){
+		  this.flag = false
+	  }else{
+		  this.flag = true
+	  }
+	}
+},
 //方法集合
 methods: {
-
+	goBack(){
+		//点击后退
+		this.$router.go(-1)
+	}
 },
 //生命周期 - 创建完成（可以访问当前this实例）
 created() {
-
+		// if(this.$route.path ==='/home'){
+		// 	this.flag = false
+		// }else{
+		// 	this.flag = true
+		// }
+		this.flag = this.$route.path==='/home' ? false : true
 },
 //生命周期 - 挂载完成（可以访问DOM元素）
 mounted() {
@@ -88,4 +108,8 @@ transform: translateX(100%);
 .v-enter-active,.v-leave-active{
 	transition: all 0.5s ease;
 }
+* {
+  touch-action: none;
+}
+
 </style>

@@ -27,7 +27,7 @@ return {
         comments:{}
 };
 },
-props:['mama'],
+props:['id'],
 computed: {},
 //监控data中的数据变化
 watch: {},

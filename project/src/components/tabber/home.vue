@@ -1,11 +1,7 @@
 <template>
 <div class=''>
  <!-- 轮播图 -->
-    <mt-swipe :auto="4000">
-  <mt-swipe-item v-for="item in lunbo" :key="item.id">
-    <img :src="item.img" alt="">
-  </mt-swipe-item>
-</mt-swipe>
+  <luntubo :lunbotulist="lunbo" :isfull='true'></luntubo>
 <!-- 轮播图结束 -->
 <!-- 九宫格到六宫格 -->
  <ul class="mui-table-view mui-grid-view mui-grid-9 " >
@@ -13,22 +9,27 @@
                   <router-link  to="/home/newlist">
 		                    <span class="mui-icon mui-icon-home"></span>
 		                    <div class="mui-media-body">新闻资讯</div></router-link></li>
+
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                   <router-link  to="#">
 		                    <span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
 		                    <div class="mui-media-body">图片分享</div></router-link></li>
+                        
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                  <router-link  to="#">
+                  <router-link  to="/home/goodslist">
 		                    <span class="mui-icon mui-icon-chatbubble"></span>
 		                    <div class="mui-media-body">商品购买</div></router-link></li>
+
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                   <router-link  to="#">
 		                    <span class="mui-icon mui-icon-location"></span>
 		                    <div class="mui-media-body">留言反馈</div></router-link></li>
+
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                   <router-link  to="#">
 		                    <span class="mui-icon mui-icon-search"></span>
 		                    <div class="mui-media-body">视频专区</div></router-link></li>
+                        
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                   <router-link  to="#">
 		                    <span class="mui-icon mui-icon-phone"></span>
@@ -39,8 +40,9 @@
 </template>
 <script>
 import {Toast} from 'mint-ui'
+import luntubo from '../subcomponents/swiper'
 export default {
-components: {},
+components: { luntubo},
 data() {
 return {
 lunbo:[]
@@ -84,17 +86,7 @@ activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 }
 </script>
 <style  scoped  lang="scss">
-.mint-swipe{
-    height: 200px;
-    width: 100%;
-}
-.mint-swipe-item{
- 
-  img{
-    width: 100%;
-    height: 100%;
-  }
-}
+
 .mui-table-view{
   background-color: #fff!important;
   border: none!important;
